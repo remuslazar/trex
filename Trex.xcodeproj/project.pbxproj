@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D87FFC241B131DFC009379C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87FFC231B131DFC009379C0 /* AppDelegate.swift */; };
-		D87FFC261B131DFC009379C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87FFC251B131DFC009379C0 /* ViewController.swift */; };
 		D87FFC291B131DFC009379C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D87FFC271B131DFC009379C0 /* Main.storyboard */; };
 		D87FFC2B1B131DFC009379C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87FFC2A1B131DFC009379C0 /* Images.xcassets */; };
 		D87FFC2E1B131DFC009379C0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87FFC2C1B131DFC009379C0 /* LaunchScreen.xib */; };
 		D87FFC3A1B131DFC009379C0 /* TrexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87FFC391B131DFC009379C0 /* TrexTests.swift */; };
+		D8D3F5AF1B1339E1009C1828 /* GPXFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D3F5AE1B1339E1009C1828 /* GPXFileManager.swift */; };
+		D8D3F5B31B1340F2009C1828 /* GPXFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D3F5B21B1340F2009C1828 /* GPXFilesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +30,14 @@
 		D87FFC1E1B131DFC009379C0 /* Trex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87FFC221B131DFC009379C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D87FFC231B131DFC009379C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D87FFC251B131DFC009379C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D87FFC281B131DFC009379C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D87FFC2A1B131DFC009379C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D87FFC2D1B131DFC009379C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D87FFC331B131DFC009379C0 /* TrexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87FFC381B131DFC009379C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D87FFC391B131DFC009379C0 /* TrexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrexTests.swift; sourceTree = "<group>"; };
+		D8D3F5AE1B1339E1009C1828 /* GPXFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFileManager.swift; sourceTree = "<group>"; };
+		D8D3F5B21B1340F2009C1828 /* GPXFilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPXFilesViewController.swift; path = ../GPXFilesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +79,9 @@
 		D87FFC201B131DFC009379C0 /* Trex */ = {
 			isa = PBXGroup;
 			children = (
+				D8D3F5B21B1340F2009C1828 /* GPXFilesViewController.swift */,
 				D87FFC231B131DFC009379C0 /* AppDelegate.swift */,
-				D87FFC251B131DFC009379C0 /* ViewController.swift */,
+				D8D3F5AE1B1339E1009C1828 /* GPXFileManager.swift */,
 				D87FFC271B131DFC009379C0 /* Main.storyboard */,
 				D87FFC211B131DFC009379C0 /* Supporting Files */,
 			);
@@ -212,7 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D87FFC261B131DFC009379C0 /* ViewController.swift in Sources */,
+				D8D3F5B31B1340F2009C1828 /* GPXFilesViewController.swift in Sources */,
+				D8D3F5AF1B1339E1009C1828 /* GPXFileManager.swift in Sources */,
 				D87FFC241B131DFC009379C0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
