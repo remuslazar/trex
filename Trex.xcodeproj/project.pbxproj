@@ -411,6 +411,7 @@
 				D87FFC3F1B131DFC009379C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D87FFC401B131DFC009379C0 /* Build configuration list for PBXNativeTarget "TrexTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +420,7 @@
 				D87FFC421B131DFC009379C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
