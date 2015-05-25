@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+
 class GPXViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Outlets
@@ -27,7 +28,7 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
             if let url = gpxURL {
                 GPX.parse(url) {
                     if let gpx = $0 {
-                        self.clearWaypoints()
+//                        self.clearWaypoints()
                         self.handleWaypoints(gpx.waypoints)
                         self.handleTrack(gpx.tracks)
                     }
@@ -49,12 +50,24 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
     
     private func handleTrack(tracks: [GPX.Track]) {
         for track in tracks {
+            if track.fixes.count < 1 { continue } // skip empty tracks
+            
             var coordinates: [CLLocationCoordinate2D] = track.fixes.map {
                 CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
             }
             let polyline = MKPolyline(coordinates: &coordinates, count: coordinates.count)
             mapView.addOverlay(polyline, level: MKOverlayLevel.AboveRoads)
-            mapView.showAnnotations([track.fixes.first!, track.fixes.last!], animated: true)
+            
+            // TODO: make it DRY
+            let first = TrackFixWaypoint(latitude: coordinates.first!.latitude, longitude: coordinates.first!.longitude)
+            first.name = "Start"
+            first.info = track.name
+            first.isFirstWaypoint = true
+            let last = TrackFixWaypoint(latitude: coordinates.last!.latitude, longitude: coordinates.last!.longitude)
+            last.name = "End"
+            last.info = track.name
+            
+            mapView.showAnnotations([first, last], animated: true)
         }
     }
     
@@ -66,6 +79,35 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
             return renderer
         }
         return nil
+    }
+    
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+
+        var view = mapView.dequeueReusableAnnotationViewWithIdentifier(Constants.AnnotationViewReuseIdentifier)
+        
+        if view == nil {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: Constants.AnnotationViewReuseIdentifier)
+            view.canShowCallout = true
+        } else {
+            view.annotation = annotation
+        }
+        
+        // if we're using the MKPinAnnotationView, set the pin color accordingly
+        if let pinAnnotation = view as? MKPinAnnotationView {
+            if let trackWaypoint = annotation as? TrackFixWaypoint {
+                pinAnnotation.pinColor = trackWaypoint.isFirstWaypoint ? MKPinAnnotationColor.Green : MKPinAnnotationColor.Red
+            } else {
+                pinAnnotation.pinColor = MKPinAnnotationColor.Purple
+            }
+        }
+
+        return view
+    }
+
+    // MARK: - Constants
+    
+    private struct Constants {
+        static let AnnotationViewReuseIdentifier = "waypoint"
     }
     
 }

@@ -23,6 +23,10 @@ class EditableWaypoint: GPX.Waypoint
     override var imageURL: NSURL? { return links.first?.url }
 }
 
+class TrackFixWaypoint: EditableWaypoint {
+    var isFirstWaypoint = false
+}
+
 extension GPX.Waypoint: MKAnnotation
 {
     // MARK: - MKAnnotation
