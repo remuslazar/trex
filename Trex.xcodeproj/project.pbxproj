@@ -80,8 +80,6 @@
 				D87FFC231B131DFC009379C0 /* AppDelegate.swift */,
 				D87FFC251B131DFC009379C0 /* ViewController.swift */,
 				D87FFC271B131DFC009379C0 /* Main.storyboard */,
-				D87FFC2A1B131DFC009379C0 /* Images.xcassets */,
-				D87FFC2C1B131DFC009379C0 /* LaunchScreen.xib */,
 				D87FFC211B131DFC009379C0 /* Supporting Files */,
 			);
 			path = Trex;
@@ -90,6 +88,8 @@
 		D87FFC211B131DFC009379C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D87FFC2A1B131DFC009379C0 /* Images.xcassets */,
+				D87FFC2C1B131DFC009379C0 /* LaunchScreen.xib */,
 				D87FFC221B131DFC009379C0 /* Info.plist */,
 			);
 			name = "Supporting Files";
