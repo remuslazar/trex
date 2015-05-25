@@ -27,7 +27,9 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
             if let url = gpxURL {
                 GPX.parse(url) {
                     if let gpx = $0 {
+                        self.clearWaypoints()
                         self.handleWaypoints(gpx.waypoints)
+                        self.handleTrack(gpx.tracks)
                     }
                 }
             }
@@ -43,6 +45,27 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
     private func handleWaypoints(waypoints: [GPX.Waypoint]) {
         mapView.addAnnotations(waypoints)
         mapView.showAnnotations(waypoints, animated: true)
+    }
+    
+    private func handleTrack(tracks: [GPX.Track]) {
+        for track in tracks {
+            var coordinates: [CLLocationCoordinate2D] = track.fixes.map {
+                CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
+            }
+            let polyline = MKPolyline(coordinates: &coordinates, count: coordinates.count)
+            mapView.addOverlay(polyline, level: MKOverlayLevel.AboveRoads)
+            mapView.showAnnotations([track.fixes.first!, track.fixes.last!], animated: true)
+        }
+    }
+    
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        if overlay is MKPolyline {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = UIColor.cyanColor()
+            renderer.lineWidth = 3
+            return renderer
+        }
+        return nil
     }
     
 }
