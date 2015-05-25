@@ -36,6 +36,7 @@ class GPXFilesViewController: UITableViewController {
     
     struct Storyboard {
         static let CellReuseIdentifier = "GPX File Cell"
+        static let ShowTrackSegueIdentifier = "Show Track"
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,14 +74,19 @@ class GPXFilesViewController: UITableViewController {
         }
     }
 
-    /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if let dvc = segue.destinationViewController as? GPXViewController {
+            if segue.identifier == Storyboard.ShowTrackSegueIdentifier {
+                if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(cell) {
+                    let url = gpxFileManager.files[indexPath.row]
+                    dvc.title = url.lastPathComponent
+                    dvc.gpxURL = url
+                }
+            }
+        }
     }
-    */
 
 }

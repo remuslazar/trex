@@ -32,6 +32,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="YRz-0c-bbt" kind="show" identifier="Show Track" id="DTO-js-ngt"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -44,6 +47,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F13-Qc-i7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1475" y="386"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="16G-Ig-UvA">
+            <objects>
+                <viewController id="YRz-0c-bbt" customClass="GPXViewController" customModule="Trex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aI0-WV-oiL"/>
+                        <viewControllerLayoutGuide type="bottom" id="bgw-Jl-Hlb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o1A-TG-nmi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wbm-Tf-s5j">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wbm-Tf-s5j" secondAttribute="trailing" id="7hi-FL-35m"/>
+                            <constraint firstItem="wbm-Tf-s5j" firstAttribute="bottom" secondItem="bgw-Jl-Hlb" secondAttribute="top" id="SHn-TI-LuX"/>
+                            <constraint firstItem="wbm-Tf-s5j" firstAttribute="top" secondItem="o1A-TG-nmi" secondAttribute="top" id="fCm-1n-ZKc"/>
+                            <constraint firstItem="wbm-Tf-s5j" firstAttribute="leading" secondItem="o1A-TG-nmi" secondAttribute="leading" id="fbP-hN-TfA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="wbm-Tf-s5j" id="66b-ss-lc0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fY1-IP-fif" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2168" y="386"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xY6-mT-t8r">
