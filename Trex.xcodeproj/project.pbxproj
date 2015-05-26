@@ -17,6 +17,7 @@
 		D8D3F5B51B1363B9009C1828 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D3F5B41B1363B9009C1828 /* GPX.swift */; };
 		D8D3F5B71B13663B009C1828 /* GPXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D3F5B61B13663B009C1828 /* GPXViewController.swift */; };
 		D8D3F5B91B136B24009C1828 /* MKGPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D3F5B81B136B24009C1828 /* MKGPX.swift */; };
+		D8D3F5BB1B13A39C009C1828 /* InfoAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D3F5BA1B13A39C009C1828 /* InfoAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +41,11 @@
 		D87FFC381B131DFC009379C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D87FFC391B131DFC009379C0 /* TrexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrexTests.swift; sourceTree = "<group>"; };
 		D8D3F5AE1B1339E1009C1828 /* GPXFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFileManager.swift; sourceTree = "<group>"; };
-		D8D3F5B21B1340F2009C1828 /* GPXFilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPXFilesViewController.swift; path = ../GPXFilesViewController.swift; sourceTree = "<group>"; };
+		D8D3F5B21B1340F2009C1828 /* GPXFilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFilesViewController.swift; sourceTree = "<group>"; };
 		D8D3F5B41B1363B9009C1828 /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
 		D8D3F5B61B13663B009C1828 /* GPXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXViewController.swift; sourceTree = "<group>"; };
 		D8D3F5B81B136B24009C1828 /* MKGPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGPX.swift; sourceTree = "<group>"; };
+		D8D3F5BA1B13A39C009C1828 /* InfoAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				D8D3F5AE1B1339E1009C1828 /* GPXFileManager.swift */,
 				D87FFC271B131DFC009379C0 /* Main.storyboard */,
 				D8D3F5B61B13663B009C1828 /* GPXViewController.swift */,
+				D8D3F5BA1B13A39C009C1828 /* InfoAnnotationView.swift */,
 				D87FFC211B131DFC009379C0 /* Supporting Files */,
 			);
 			path = Trex;
@@ -173,6 +176,7 @@
 				TargetAttributes = {
 					D87FFC1D1B131DFC009379C0 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 5MR244XF46;
 					};
 					D87FFC321B131DFC009379C0 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -229,6 +233,7 @@
 				D8D3F5AF1B1339E1009C1828 /* GPXFileManager.swift in Sources */,
 				D87FFC241B131DFC009379C0 /* AppDelegate.swift in Sources */,
 				D8D3F5B51B1363B9009C1828 /* GPX.swift in Sources */,
+				D8D3F5BB1B13A39C009C1828 /* InfoAnnotationView.swift in Sources */,
 				D8D3F5B91B136B24009C1828 /* MKGPX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,9 +363,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Trex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -368,9 +376,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Trex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

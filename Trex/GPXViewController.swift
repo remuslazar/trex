@@ -44,6 +44,7 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
     }
     
     private func handleWaypoints(waypoints: [GPX.Waypoint]) {
+        clearWaypoints()
         mapView.addAnnotations(waypoints)
         mapView.showAnnotations(waypoints, animated: true)
     }
@@ -82,12 +83,17 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-
-        var view = mapView.dequeueReusableAnnotationViewWithIdentifier(Constants.AnnotationViewReuseIdentifier)
+        
+        var view = mapView.dequeueReusableAnnotationViewWithIdentifier(annotation is TrackFixWaypoint ? Constants.TrackpointAnnotationViewReuseIdentifier : Constants.WaypointAnnotationViewReuseIdentifier)
         
         if view == nil {
-            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: Constants.AnnotationViewReuseIdentifier)
-            view.canShowCallout = true
+            if annotation is TrackFixWaypoint {
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: Constants.TrackpointAnnotationViewReuseIdentifier)
+                view.canShowCallout = true
+            } else {
+                view = InfoAnnotationView(annotation: annotation, reuseIdentifier: Constants.WaypointAnnotationViewReuseIdentifier)
+                view.canShowCallout = false
+            }
         } else {
             view.annotation = annotation
         }
@@ -100,6 +106,10 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
                 pinAnnotation.pinColor = MKPinAnnotationColor.Purple
             }
         }
+        
+        if let infoAnnotation = view as? InfoAnnotationView {
+            infoAnnotation.caption = annotation.title
+        }
 
         return view
     }
@@ -107,7 +117,8 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Constants
     
     private struct Constants {
-        static let AnnotationViewReuseIdentifier = "waypoint"
+        static let WaypointAnnotationViewReuseIdentifier = "waypoint"
+        static let TrackpointAnnotationViewReuseIdentifier = "trackpoint"
     }
     
 }
